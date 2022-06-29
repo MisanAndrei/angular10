@@ -1,0 +1,30 @@
+<div class="container">
+    <div style="text-align:center">
+    <p>The component for creating passwords works!</p>
+    </div>
+    <div class="app-container">
+        <div class="user-form">
+            <form #form="ngForm" (ngSubmit)="CreateUserPassword()">
+                <div class="form-group">
+                    <label for="">User Id</label>
+                    <input type="number" name="UserId" [(ngModel)]="user.id">
+                </div>
+                <div class="form-group">
+                    <button>Create Password</button>
+                </div>
+            </form>
+        </div>
+        <div class="user-password">
+            <div *ngIf="passwordCreated; else passwordNotCreated">
+                <div class="user-row">
+                    <div class="user-row-details">
+                        <span>The password for user {{currentuser}} is available {{timeLeft}} more seconds!</span>
+                    </div>
+                </div>
+              </div>
+              <ng-template #passwordNotCreated>
+                There is no password available at this moment. Please create one!
+              </ng-template>           
+        </div>
+    </div>
+</div>
